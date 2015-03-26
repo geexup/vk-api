@@ -36,6 +36,7 @@ var user = function (id) {
 	var uid = id;
 	this.id = id;
 	this.wall = new wall(id);
+	this.storage = new storage(id);
 	this.params_add_owner = function (params){
 		if(params == null)
 			params = {};
@@ -334,6 +335,36 @@ wall.reportComment = function (params, callback){
 	get_method("wall.reportComment", params, callback);
 };
 
+var storage = function (user_id){
+	this.params_add_owner = function (params){
+		if(params == null)
+			params = {};
+		params.user_id = user_id;
+		return params;
+	};
+	this.get =  = function(params, callback){
+		params = this.params_add_owner(params);
+		get_method("storage.get", params, callback);
+	};
+	this.set =  = function(params, callback){
+		params = this.params_add_owner(params);
+		get_method("storage.set", params, callback);
+	};
+	this.getKeys =  = function(params, callback){
+		params = this.params_add_owner(params);
+		get_method("storage.getKeys", params, callback);
+	};
+};
+storage.get = function(params, callback){
+	get_method("storage.get", params, callback);
+};
+storage.set = function(params, callback){
+	get_method("storage.set", params, callback);
+};
+storage.getKeys = function(params, callback){
+	get_method("storage.getKeys", params, callback);
+};
+
 module.exports = {
 	init: function (tkn, tmot){
 		timeout = typeof tmot !== "undefined" ? tmot : 1000;
@@ -342,5 +373,6 @@ module.exports = {
 	users : user,
 	wall : wall,
 	status : status,
-	friends: friends
+	friends: friends,
+	storage: storage
 };
