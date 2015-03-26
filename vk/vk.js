@@ -37,6 +37,7 @@ var user = function (id) {
 	this.id = id;
 	this.wall = new wall(id);
 	this.storage = new storage(id);
+	this.audio = new audio(id);
 	this.params_add_owner = function (params){
 		if(params == null)
 			params = {};
@@ -365,6 +366,116 @@ storage.getKeys = function(params, callback){
 	get_method("storage.getKeys", params, callback);
 };
 
+var audio = function (user_id){
+	this.params_add_owner = function (params){
+		if(params == null)
+			params = {};
+		params.owner_id = user_id;
+		return params;
+	};
+	this.get = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.get", params, callback);
+	};
+	this.add = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.add", params, callback);
+	};
+	this.delete = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.delete", params, callback);
+	};
+	this.edit = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.edit", params, callback);
+	};
+	this.reorder = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.reorder", params, callback);
+	};
+	this.restore = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.restore", params, callback);
+	};
+	this.getAlbums = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.getAlbums", params, callback);
+	};
+	this.getRecommendations = function (params, callback){
+		if(params == null)
+			params = {};
+		params.user_id = user_id;
+		get_method("audio.getRecommendations", params, callback);
+	};
+	this.getCount = function (params, callback){
+		params = this.params_add_owner(params);
+		get_method("audio.getCount", params, callback);
+	};
+};
+audio.get = function (params, callback){
+	get_method("audio.get", params, callback);
+};
+audio.getById = function (params, callback){
+	get_method("audio.getById", params, callback);
+};
+audio.getLyrics = function (params, callback){
+	get_method("audio.getLyrics", params, callback);
+};
+audio.search = function (params, callback){
+	get_method("audio.search", params, callback);
+};
+audio.getUploadServer = function (callback){
+	get_method("audio.getUploadServer", null, callback);
+};
+audio.save = function (params, callback){
+	get_method("audio.save", params, callback);
+};
+audio.add = function (params, callback){
+	get_method("audio.add", params, callback);
+};
+audio.delete = function (params, callback){
+	get_method("audio.delete", params, callback);
+};
+audio.edit = function (params, callback){
+	get_method("audio.edit", params, callback);
+};
+audio.reorder = function (params, callback){
+	get_method("audio.reorder", params, callback);
+};
+audio.restore = function (params, callback){
+	get_method("audio.restore", params, callback);
+};
+audio.getAlbums = function (params, callback){
+	get_method("audio.getAlbums", params, callback);
+};
+audio.addAlbum = function (params, callback){
+	get_method("audio.addAlbum", params, callback);
+};
+audio.editAlbum = function (params, callback){
+	get_method("audio.editAlbum", params, callback);
+};
+audio.deleteAlbum = function (params, callback){
+	get_method("audio.deleteAlbum", params, callback);
+};
+audio.moveToAlbum = function (params, callback){
+	get_method("audio.moveToAlbum", params, callback);
+};
+audio.setBroadcast = function (params, callback){
+	get_method("audio.setBroadcast", params, callback);
+};
+audio.getBroadcastList = function (params, callback){
+	get_method("audio.getBroadcastList", params, callback);
+};
+audio.getRecommendations = function (params, callback){
+	get_method("audio.getRecommendations", params, callback);
+};
+audio.getPopular = function (params, callback){
+	get_method("audio.getPopular", params, callback);
+};
+audio.getCount = function (params, callback){
+	get_method("audio.getCount", params, callback);
+};
+
 module.exports = {
 	init: function (tkn, tmot){
 		timeout = typeof tmot !== "undefined" ? tmot : 1000;
@@ -374,5 +485,6 @@ module.exports = {
 	wall : wall,
 	status : status,
 	friends: friends,
-	storage: storage
+	storage: storage,
+	audio: audio
 };
