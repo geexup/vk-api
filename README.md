@@ -1,2 +1,22 @@
 # vk-api
-My little nodejs module.
+
+Objects:
+---------
+* users
+	* wall
+	* status
+* wall
+* status
+* friends
+
+API Usage Example:
+------------------
+````
+var vk = require("vk.js");
+vk.init("token123");
+var me = new vk.users(69088083);
+me.wall.get({param_key: "value"}, function (response, error){
+	if(!error)
+		console.log(response);
+});
+````
