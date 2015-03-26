@@ -343,15 +343,15 @@ var storage = function (user_id){
 		params.user_id = user_id;
 		return params;
 	};
-	this.get =  = function(params, callback){
+	this.get = function(params, callback){
 		params = this.params_add_owner(params);
 		get_method("storage.get", params, callback);
 	};
-	this.set =  = function(params, callback){
+	this.set = function(params, callback){
 		params = this.params_add_owner(params);
 		get_method("storage.set", params, callback);
 	};
-	this.getKeys =  = function(params, callback){
+	this.getKeys = function(params, callback){
 		params = this.params_add_owner(params);
 		get_method("storage.getKeys", params, callback);
 	};
@@ -481,6 +481,7 @@ module.exports = {
 		timeout = typeof tmot !== "undefined" ? tmot : 1000;
 		token = tkn;
 	}, 
+	get_method : get_method,
 	users : user,
 	wall : wall,
 	status : status,
