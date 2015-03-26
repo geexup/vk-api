@@ -12,7 +12,7 @@ Objects:
 API Usage Example:
 ------------------
 ````
-var vk = require("vk.js");
+var vk = require("vk");
 vk.init("token123");
 var me = new vk.users(69088083);
 me.wall.get({param_key: "value"}, function (response, error){
