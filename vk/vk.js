@@ -26,7 +26,7 @@ var get_method = function (mathod, params, callback){
 			if(!res.error)
 				callback(res.response, null);
 			else
-				callback(null, res);
+				callback(null, res.error);
 		}
 		else
 			callback(null, error);
