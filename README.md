@@ -1,18 +1,18 @@
-# vk-api
-
 Objects:
 ---------
 * users
 	* wall
 	* status
+	* storage
 * wall
 * status
 * friends
+* storage
 
 API Usage Example:
 ------------------
 ````
-var vk = require("vk");
+var vk = require("vk.js");
 vk.init("token123");
 var me = new vk.users(69088083);
 me.wall.get({param_key: "value"}, function (response, error){
