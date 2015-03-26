@@ -4,10 +4,12 @@ Objects:
 	* wall
 	* status
 	* storage
+	* audio
 * wall
 * status
 * friends
 * storage
+* audio
 
 API Usage Example:
 ------------------
