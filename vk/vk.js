@@ -29,7 +29,7 @@ var get_method = function (mathod, params, callback){
 				callback(null, res);
 		}
 		else
-			callback(null);
+			callback(null, error);
 	});
 };
 var user = function (id) {
