@@ -20,3 +20,5 @@ me.wall.get({param_key: "value"}, function (response, error){
 		console.log(response);
 });
 ````
+
+This module uses [request](https://github.com/request/request)
